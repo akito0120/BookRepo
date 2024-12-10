@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
 import {ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
-import RootHeader from "@/components/shared/RootHeader";
 import {SidebarProvider, SidebarTrigger} from "@/components/ui/sidebar";
-import LeftSider from "@/components/shared/LeftSider";
 import AppSidebar from "@/components/shared/AppSidebar";
 
 // const geistSans = localFont({
