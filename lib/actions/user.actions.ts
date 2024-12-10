@@ -10,6 +10,7 @@ export async function createUser(name: string, clerkID: string): Promise<void> {
         const newUser = new User({
             name: name,
             clerkID: clerkID,
+            books: []
         });
 
         await newUser.save();
