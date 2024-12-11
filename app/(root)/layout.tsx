@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode } )
             <body className="min-h-screen">
                 <SidebarProvider>
                     <AppSidebar />
-                    <main>
+                    <main className="w-full h-full">
                         <SidebarTrigger />
                         {children}
                     </main>

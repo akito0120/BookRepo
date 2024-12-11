@@ -1,29 +1,24 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import {Activity, Book, Calendar, Home, Inbox, Search, Settings} from "lucide-react"
 
 export const siderItems = [
     {
         title: "Home",
-        url: "#",
+        url: "/",
         icon: Home,
     },
     {
-        title: "Inbox",
-        url: "#",
-        icon: Inbox,
+        title: "Books",
+        url: "/books",
+        icon: Book
     },
     {
-        title: "Calendar",
-        url: "#",
-        icon: Calendar,
-    },
-    {
-        title: "Search",
-        url: "#",
-        icon: Search,
+        title: "Activities",
+        url: "/activities",
+        icon: Activity
     },
     {
         title: "Settings",
-        url: "#",
+        url: "/settings",
         icon: Settings,
     },
 ]

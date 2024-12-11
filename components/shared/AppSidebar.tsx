@@ -14,6 +14,9 @@ import {UserButton} from "@clerk/nextjs";
 import {currentUser} from "@clerk/nextjs/server";
 import {redirect} from "next/navigation";
 import {fetchUser} from "@/lib/actions/user.actions";
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
+import {ChevronUp, User2} from "lucide-react";
+import Link from "next/link";
 
 export default async function AppSidebar() {
     const user = await currentUser();
@@ -45,11 +48,31 @@ export default async function AppSidebar() {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
+
             <SidebarFooter>
-                <div className="pl-3 pb-2 flex flex-row gap-3 items-center">
-                    <UserButton />
-                    <p className="text-black text-sm">Logged in as {userInfo.name}</p>
-                </div>
+                <SidebarMenu>
+                    <SidebarMenuItem>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <SidebarMenuButton>
+                                    <User2 /> {userInfo.name}
+                                    <ChevronUp className="ml-auto" />
+                                </SidebarMenuButton>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent
+                                side="top"
+                                className="w-[--radix-popper-anchor-width]"
+                            >
+                                <DropdownMenuItem>
+                                    <span>Account</span>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <span>Sign out</span>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </SidebarMenuItem>
+                </SidebarMenu>
             </SidebarFooter>
         </Sidebar>
     )
