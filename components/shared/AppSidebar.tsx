@@ -50,29 +50,34 @@ export default async function AppSidebar() {
             </SidebarContent>
 
             <SidebarFooter>
-                <SidebarMenu>
-                    <SidebarMenuItem>
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <SidebarMenuButton>
-                                    <User2 /> {userInfo.name}
-                                    <ChevronUp className="ml-auto" />
-                                </SidebarMenuButton>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent
-                                side="top"
-                                className="w-[--radix-popper-anchor-width]"
-                            >
-                                <DropdownMenuItem>
-                                    <span>Account</span>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    <span>Sign out</span>
-                                </DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </SidebarMenuItem>
-                </SidebarMenu>
+                {/*<SidebarMenu>*/}
+                {/*    <SidebarMenuItem>*/}
+                {/*        <DropdownMenu>*/}
+                {/*            <DropdownMenuTrigger asChild>*/}
+                {/*                <SidebarMenuButton>*/}
+                {/*                    <User2 /> {userInfo.name}*/}
+                {/*                    <ChevronUp className="ml-auto" />*/}
+                {/*                </SidebarMenuButton>*/}
+                {/*            </DropdownMenuTrigger>*/}
+                {/*            <DropdownMenuContent*/}
+                {/*                side="top"*/}
+                {/*                className="w-[--radix-popper-anchor-width]"*/}
+                {/*            >*/}
+                {/*                <DropdownMenuItem>*/}
+                {/*                    <span>Account</span>*/}
+                {/*                </DropdownMenuItem>*/}
+                {/*                <DropdownMenuItem>*/}
+                {/*                    <span>Sign out</span>*/}
+                {/*                </DropdownMenuItem>*/}
+                {/*            </DropdownMenuContent>*/}
+                {/*        </DropdownMenu>*/}
+                {/*    </SidebarMenuItem>*/}
+                {/*</SidebarMenu>*/}
+
+                <div className="h-[50px] w-full p-3 flex items-center gap-3">
+                    <UserButton />
+                    <p className="text-sm text-gray-700">{userInfo.name}</p>
+                </div>
             </SidebarFooter>
         </Sidebar>
     )

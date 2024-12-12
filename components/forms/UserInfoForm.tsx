@@ -23,7 +23,6 @@ export default function UserInfoForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
     } = useForm<FormData>({
         resolver: zodResolver(userSchema)
     });
