@@ -68,10 +68,10 @@ export default function EditBookForm(
 
     return (
         <div className="flex gap-1 items-center">
-            <Skeleton className="w-[200px] h-[280px] rounded-md drop-shadow-xl"/>
+            <Skeleton className="w-[200px] h-[260px] rounded-md drop-shadow-xl"/>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col px-5 gap-4">
-                    <h2 className="font-bold">Edit Book Information</h2>
+                    <p className="font-bold text-md">Edit Book Information</p>
                     <div className="flex gap-8 justify-start">
                         <Controller
                             render={({field}: any) => (
@@ -119,7 +119,7 @@ export default function EditBookForm(
                         rows={5}
                         defaultValue={defaultDescription}
                     />
-                    <Button type="submit">Apply</Button>
+                    <Button type="submit" size="sm">Apply</Button>
                 </div>
             </form>
         </div>

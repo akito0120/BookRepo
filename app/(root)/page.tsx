@@ -23,7 +23,7 @@ export default async function Page() {
 
     return (
         <div className="px-10 py-5">
-            <div className="w-full my-7 flex gap-5 pr-10">
+            <div className="w-full mt-2 mb-5 flex gap-5 pr-10">
                 <div className="text-3xl font-bold text-gray-900 underline underline-offset-2 px-5">HOME</div>
             </div>
             <div className="px-5 flex justify-center">
@@ -35,7 +35,7 @@ export default async function Page() {
                         >
                             <CarouselContent className="-ml-1">
                                 {recentlyRead.map((book: any) => (
-                                    <CarouselItem className="px-6">
+                                    <CarouselItem className="px-6" key={book.id}>
                                         <div>
                                             <BookCard
                                                 id={book.id}

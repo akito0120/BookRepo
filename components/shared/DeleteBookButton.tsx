@@ -27,7 +27,7 @@ export default function DeleteBookButton({ bookID, title }: { bookID: string, ti
             <Tooltip>
                 <TooltipTrigger className="w-1/3" asChild>
                     <PopoverTrigger asChild>
-                        <Button className="w-full" variant="ghost">
+                        <Button className="w-full" variant="ghost" size="sm">
                             <Trash/>
                         </Button>
                     </PopoverTrigger>
@@ -45,6 +45,7 @@ export default function DeleteBookButton({ bookID, title }: { bookID: string, ti
                     <Button
                         className="font-extralight"
                         onClick={onDeleteClick}
+                        size="sm"
                     >
                         Confirm
                     </Button>

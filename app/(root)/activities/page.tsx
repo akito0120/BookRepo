@@ -29,7 +29,7 @@ export default async function Page() {
 
     return (
         <div className="px-10 py-5">
-            <div className="w-full my-7 flex gap-5 pr-10">
+            <div className="w-full mt-2 mb-5 flex gap-5 pr-10">
                 <div className="text-3xl font-bold text-gray-900 underline underline-offset-2 px-5">ACTIVITIES</div>
             </div>
             <div className="px-5 pt-1">

@@ -73,21 +73,67 @@ export async function addBook(
     }
 }
 
-export async function fetchBooks(clerkID: string, page: number = 1, pageSize: number = 10) {
+export async function fetchBooks(
+    clerkID: string,
+    search: string | undefined,
+    sort: string,
+    page: number = 1,
+    pageSize: number = 8
+) {
     try{
         const skipAmount = (page - 1) * pageSize;
 
         await connectDB();
 
-        const user = await User
-            .findOne({clerkID: clerkID})
-            .populate({
-                path: "books",
-                model: Book
-            })
-            .exec();
+        let sortOption: any = {};
+        if(sort === "author" ){
+            sortOption.author = 1;
+        }else if(sort === "title"){
+            sortOption.title = 1;
+        }
 
-        return user.books;
+        if(search) {
+            const user = await User
+                .findOne({clerkID: clerkID})
+                .populate({
+                    path: "books",
+                    model: Book,
+                    match: {
+                        $or: [
+                            { title: { $regex: search, $options: "i" } },
+                            { author: { $regex: search, $options: "i" } },
+                            { description: { $regex: search, $options: "i" } },
+                        ]
+                    },
+                    options: { sort: sortOption }
+                })
+                .exec();
+
+            const isNext = user.books.length > skipAmount + pageSize;
+
+            return {
+                books: user.books.slice(skipAmount, skipAmount + pageSize),
+                isNext: isNext
+            }
+        }else {
+            const user = await User
+                .findOne({clerkID: clerkID})
+                .populate({
+                    path: "books",
+                    model: Book,
+                    options: { sort: sortOption }
+                })
+                .exec();
+
+            const isNext = user.books.length > skipAmount + pageSize;
+
+            return {
+                books: user.books.slice(skipAmount, skipAmount + pageSize),
+                isNext: isNext
+            }
+        }
+
+
     }catch(error) {
         console.log("Failed to fetch books: " + error);
     }

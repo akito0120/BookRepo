@@ -61,7 +61,7 @@ export default async function BookCard({ id, title, author, description, favorit
                             <Dialog>
                                 <DialogTrigger className="w-full" asChild>
                                     <TooltipTrigger className="w-1/3" asChild>
-                                        <Button className="w-full" variant="ghost">
+                                        <Button className="w-full" variant="ghost" size="sm">
                                             <Edit2/>
                                         </Button>
                                     </TooltipTrigger>

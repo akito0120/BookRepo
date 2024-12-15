@@ -19,7 +19,7 @@ export default async function ReadBookButton( { bookID, title, author }: Props) 
             <Tooltip>
                 <TooltipTrigger className="w-1/3" asChild>
                     <DrawerTrigger asChild>
-                        <Button className="w-full" variant="ghost">
+                        <Button className="w-full" variant="ghost" size="sm">
                             <Play/>
                         </Button>
                     </DrawerTrigger>
