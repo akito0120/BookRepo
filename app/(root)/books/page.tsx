@@ -16,7 +16,7 @@ import SearchInput from "@/components/forms/SearchInput";
 import PaginationInput from "@/components/forms/PaginationInput";
 import SelectBookSort from "@/components/forms/SelectBookSort";
 
-export default async function Page({ searchParams }: { searchParams?: { search: string, sort: string, page: number } }) {
+export default async function Page({ searchParams }: { searchParams?: { search: string, sort: string, page: string } | undefined }) {
     const user = await currentUser();
 
     if(!user) redirect("/sign-in");
@@ -25,7 +25,7 @@ export default async function Page({ searchParams }: { searchParams?: { search: 
 
     const search = (await searchParams)?.search;
     const sort = (await searchParams)?.sort || "unsort";
-    const page = (await searchParams)?.page;
+    const page = Number((await searchParams)?.page) || 1;
     const { books, isNext } = await fetchBooks(user.id, search, sort, page, 8) || { books: [], isNext: false };
 
     return (
