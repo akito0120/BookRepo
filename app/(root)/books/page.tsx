@@ -16,7 +16,7 @@ import SearchInput from "@/components/forms/SearchInput";
 import PaginationInput from "@/components/forms/PaginationInput";
 import SelectBookSort from "@/components/forms/SelectBookSort";
 
-export default async function Page({ searchParams }: { searchParams?: { search: string, sort: string, page: string } | undefined }) {
+export default async function Page({ searchParams }: { searchParams?: Promise<{ search: string, sort: string, page: string }>}) {
     const user = await currentUser();
 
     if(!user) redirect("/sign-in");
