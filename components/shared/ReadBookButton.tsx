@@ -15,7 +15,6 @@ interface Props {
 export default async function ReadBookButton( { bookID, title, author }: Props) {
     return (
         <Drawer>
-
             <Tooltip>
                 <TooltipTrigger className="w-1/3" asChild>
                     <DrawerTrigger asChild>

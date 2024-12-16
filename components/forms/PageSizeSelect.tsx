@@ -3,27 +3,27 @@
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 
-export default function SelectBookSort() {
+export default function PageSizeSelect() {
     const searchParams = useSearchParams();
-    const { replace } = useRouter();
     const pathname = usePathname();
+    const { replace } = useRouter();
 
-    const onSelectChange = (value: string) => {
+    const onChange = (value: string) => {
         const params = new URLSearchParams(searchParams);
-        params.set("sort", value);
+        params.set("pagesize", value);
         replace(`${pathname}?${params.toString()}`);
     }
 
     return (
-        <Select onValueChange={onSelectChange} defaultValue={searchParams.get("sort") || "unsort"}>
+        <Select defaultValue={searchParams.get("pagesize") || "8"} onValueChange={onChange}>
             <SelectTrigger className="w-[300px]">
-                <SelectValue placeholder="Sort by..." />
+                <SelectValue placeholder="Page Size" />
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value="unsort">No sorting</SelectItem>
-                <SelectItem value="author">Sort by author</SelectItem>
-                <SelectItem value="title">Sort by title</SelectItem>
+                <SelectItem value={"8"}>8 items/page</SelectItem>
+                <SelectItem value={"16"}>16 items/page</SelectItem>
+                <SelectItem value={"32"}>32 items/page</SelectItem>
             </SelectContent>
         </Select>
-    );
+    )
 }

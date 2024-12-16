@@ -11,6 +11,7 @@ import {deleteBook} from "@/lib/actions/user.actions";
 import {currentUser} from "@clerk/nextjs/server";
 import DeleteBookButton from "@/components/shared/DeleteBookButton";
 import ReadBookButton from "@/components/shared/ReadBookButton";
+import EditBookButton from "@/components/shared/EditBookButton";
 
 interface Props {
     id: string;
@@ -56,33 +57,14 @@ export default async function BookCard({ id, title, author, description, favorit
                 <TooltipProvider>
                     <div className="flex justify-evenly gap-2 w-full py-0">
                         <ReadBookButton bookID={id} author={author} title={title}/>
-
-                        <Tooltip>
-                            <Dialog>
-                                <DialogTrigger className="w-full" asChild>
-                                    <TooltipTrigger className="w-1/3" asChild>
-                                        <Button className="w-full" variant="ghost" size="sm">
-                                            <Edit2/>
-                                        </Button>
-                                    </TooltipTrigger>
-                                </DialogTrigger>
-                                <DialogContent className="w-full">
-                                    <EditBookForm
-                                        defaultAuthor={author}
-                                        defaultTitle={title}
-                                        defaultDescription={description}
-                                        id={id}
-                                        defaultFavorite={favorite}
-                                        defaultRead={read}
-                                    />
-                                </DialogContent>
-
-                            </Dialog>
-                            <TooltipContent>
-                                Edit
-                            </TooltipContent>
-                        </Tooltip>
-
+                        <EditBookButton
+                            id={id}
+                            author={author}
+                            title={title}
+                            description={description}
+                            favorite={favorite}
+                            read={read}
+                        />
                         <DeleteBookButton
                             bookID={id}
                             title={title}

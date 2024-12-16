@@ -113,7 +113,8 @@ export async function fetchBooks(
 
             return {
                 books: user.books.slice(skipAmount, skipAmount + pageSize),
-                isNext: isNext
+                isNext: isNext,
+                total: user.books.length
             }
         }else {
             const user = await User
@@ -129,7 +130,8 @@ export async function fetchBooks(
 
             return {
                 books: user.books.slice(skipAmount, skipAmount + pageSize),
-                isNext: isNext
+                isNext: isNext,
+                total: user.books.length
             }
         }
 

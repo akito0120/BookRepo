@@ -11,6 +11,7 @@ import {Dialog, DialogContent, DialogTrigger} from "@/components/ui/dialog";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 import {useUser} from "@clerk/nextjs";
 import {addRecentlyRead, addRecord} from "@/lib/actions/user.actions";
+import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card";
 
 interface Props {
     bookID: string
@@ -176,7 +177,6 @@ export default function ReadingSessionForm({ bookID, title, author }: Props) {
                                 ref={finishPageRef}
                             />
                         </div>
-
                     </div>
                 </div>
             </div>
