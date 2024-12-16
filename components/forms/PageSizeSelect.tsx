@@ -11,6 +11,7 @@ export default function PageSizeSelect() {
     const onChange = (value: string) => {
         const params = new URLSearchParams(searchParams);
         params.set("pagesize", value);
+        params.set("page", "1");
         replace(`${pathname}?${params.toString()}`);
     }
 
